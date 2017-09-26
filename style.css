@@ -1,0 +1,279 @@
+:root{
+  --color-white: #fff;
+  --room-color-left: #c65f47;
+  --room-color-right: #393437;
+  --room-color-left-bottom: #35454e;
+  --room-color-right-bottom: #a6b2b5;
+}
+
+/* ------------------ ############ RESETS ############ ------------------ */
+html, body, div, span, section, ul, li, h1, h2, h3, h4, h5 {
+  box-sizing: border-box;
+  color: #222;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: 'Raleway Thin';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Raleway Thin'), local('Raleway-Thin'), url(raleway-thin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(Raleway-Regular.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alfa Slab One Regular'), local('AlfaSlabOne-Regular'), url(alpha-slab.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/* ------------------ ############ GENERAL ############ ------------------ */
+#perfect-app-wrapper {
+  background-color: #fff;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 100vw;
+}
+
+/* 
+    ......`                                    .-:-`                                                                                                  
+    yMdhhdNh`                                `dNysdNs                                                                                                 
+    yMo.-:MN. +ddddo` :hdhds. hdyhmhyhmh.    .NNs+/+: `odhdh/ /hddh/ :mhydms `sdhdy.                                                                  
+    yMdhNMh- +My``oMs-Nm.`:Nd`mM:`hM+`sM+     .+sydNh`+Ms``+:-MN++mM-/Mh``mM`yMh+sMh                                                                  
+    yM/ :mNs`/Mh..sMo-Nm-.+Mh`mN. hM: oM+    +Nh-.:NM-+My.-yo-NN+/yy./Ms  mM`sMh/oy+                                                                  
+    oh:  `yh+ /yhhy/` -yhyho` yh` oh- /h:     /yhhhy: `+hhhy: :yyyy/ :h+  yh``ohyhs.                                                                  
+                ``      ``                      ```      ``     ``              ``    
+------------------ ############ 111 ROOM SCENE ############ ------------------ */
+.room__svg,
+.svg-defs-wrapper,
+.room-set__wrapper,
+.room__wrapper,
+.room-image,
+.color__details,
+.intro__wrapper,
+.intro-pane,
+.solid-overlay,
+.navigation__wrapper {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.room-set__wrapper {
+  background-color: var( --color-white );
+}
+
+.room__wrapper {
+  background-color: var( --room-color-left );
+  height: calc( 50% - 1px );
+  opacity: 1;
+  transition: opacity 1s;
+  will-change: opacity;
+  z-index: 2;
+}
+
+.room-b.room__wrapper {
+  background-color: var( --room-color-right );
+}
+
+.room-image-natural,
+.room-image-tinted {
+  object-fit: cover;
+}
+
+.room-image-tinted {
+  filter: grayscale(100) brightness(0.85) contrast(1.75);
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+.room-image-natural {
+  -webkit-mask-image: url( './images/room-chair-mask-clean.png' );
+  -webkit-mask-size: cover;
+  -webkit-mask-position: 50% 50%;
+  mask-size: cover;
+  z-index: 3;
+}
+
+.room-b {
+  top: calc( 50% + 1px );
+}
+
+/* ------------------ ############ LOWER ROOM ############ ------------------ */
+.room__wrapper--lower {
+  background-color: var( --room-color-left-bottom );
+}
+
+.room__wrapper--lower.room-b {
+  background-color: var( --room-color-right-bottom );
+}
+
+/* 
+       `.`            ``                   `````                        ``  `                                                                         
+    `odhhdh+          hh`                 `ddhhhdo.         /s`        .ho /m+                                                                        
+    yMo.`-ys. -osss: `mN` :osso- `sosy-   `Mm...oMh `+sss: oNNs`-osss/ .ho +Mo                                                                        
+   .NN.   `  :Nd::hN+`mN`/Nd::hN/.MN//`   `Mm`  .MM`hMs/dN/:NN:`/y+oNM--Mh +Mo                                                                        
+   `hMo``.yy.+My``+Ms`mN`oMo``sMs.Mm      `Mm.``+Md`mMsoyh/`mm``yms+mM--Mh +Mo                                                                        
+    .sdhhdd+ `sdhydy. dd`.ydyyds..mh      `mmhhhdy. /dhsdy.`hmh-hmssdm:.my /m+                                                                        
+      `...`    `..`   ..   `..`   ..       .....`    `...   `..` ..``.` .` `.`     
+
+------------------ ############ SOLID COLOR OVERLAYS ############ ------------------ */
+.solid-overlay {
+  background-color: var( --room-color-left );
+  opacity: 0;
+  transition: opacity 2s;
+  will-change: opacity;
+  z-index: 1;
+}
+
+.room-b .solid-overlay {
+  background-color: var( --room-color-right );
+}
+
+.room__wrapper--lower .solid-overlay {
+  background-color: var( --room-color-left-bottom );
+}
+
+.room__wrapper--lower.room-b .solid-overlay {
+  background-color: var( --room-color-right-bottom );
+}
+
+/* ------------------ ############ COLOR DETAILS ############ ------------------ */
+.color-info {
+  background-image: url( './images/room-chair.jpg' );
+  background-position: 50% 50%;
+  background-size: cover;
+  mix-blend-mode: multiply;
+
+  align-items: flex-start;
+  display: flex;
+  filter: brightness( 0.75 );
+  flex-direction: column;
+  font-size: 30vw;
+  letter-spacing: -8vw;
+  line-height: 16vw;
+  justify-content: center;
+  margin: 0 1%;
+  opacity: 0;
+  text-align: left;
+  transition: font-size 2s, letter-spacing 2s, opacity 2s ease-out;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  will-change: font-size, letter-spacing, opacity;
+}
+
+.color-number {
+  font-family: 'Raleway Thin';
+  font-size: 10vw;
+  letter-spacing: -1vw;
+}
+
+.color-name {
+  font-family: 'Alfa Slab One', sans-serif;
+  letter-spacing: -0.2vw;
+}
+
+/* 
+      -yy/                        :yyyys-  -+          -+                                                                                             
+     `dNNN-  `/:://.  :/-/+-     .NN/-+dy`/MN/``:+//. +Nm/``:++:`                                                                                     
+     yMo/Mm` -MNs+dN/`mMy+yMs    `omNdhs: +MNo`odooNN`oMNo.dNooNd`                                                                                    
+    +MNhyNMh`-Md  /My`mN. .Nm`   -+/.-+mM:`Mm``ohysNM`.Nd :MNssdd-                                                                                    
+   -Nm-...hMo-MMyomN:`mMdodNo    .dNyshNd. mNs:mN+sNM..mNs-hNsody`                                                                                    
+   .:.    `::-Md-::` `mN-::.       .:::-   .::``::--:` .::` -::-                                                                                      
+             .o+      oo` 
+
+------------------ ############ APP STATE - LOWER ROOM ############ ------------------ */
+.state-lower-room .room__wrapper:not( .room__wrapper--lower ) {
+  opacity: 0;
+}
+
+/* ------------------ ############ APP STATE - INTRO ############ ------------------ */
+.state-intro .intro__wrapper {
+  opacity: 1;
+  z-index: 5;
+}
+
+/* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
+.state-detail .solid-overlay {
+  opacity: 1;
+  z-index: 9;
+}
+
+.state-detail .color-info {
+  font-size: 17vw;
+  letter-spacing: 0;
+  opacity: 1;
+  z-index: 10;
+}
+
+.state-transition .solid-overlay--top {
+  transition: opacity 0.5s;
+  transition-delay: 0.5s;
+}
+
+.state-transition .color-name {
+  transition-delay: 0s;
+}
+
+/*
+   ```    `` ``                                                    ``         ``  ``                                                                  
+   /mh`  -md.hs                                         /h`       /mmo        om:`hy                 :y-                             :y-              
+   `hMo `hM/`hs `/ysy/`/y- +y/ :y:/yosys-  /syys- `yoyyoNMy-     -NmdN/   /yysdM:`hy -y+  os``ossyo.:mMh/-yooys/oyy: `+ysy/` os+syo.:mMh:.ossy+`      
+    .mN-+My .Md sMy/yMo-Nh-NNm.mN.sMy-:mN.+My-:dN/.MN::-mM:`    `dM+:MN- +Mh--mM:`Nm :My  dN./Mmsss-`hM+./Md-/MN::Nm`sMy/yMo`mM+.sMo.hM+.oMdoss.      
+     /MmNm` .Md`hMyosh+ oMmN/NdM/ sMo``dM-sMo``yM+.Mh   mM.     yMdyydMd`oMs``hM:`Nm :Mh`.mN.-syydNy sM/`/Ms .Md `Nm`hMyosh+`mM` +Mo yM/`-syymNo      
+      smm:  `mh -hdshh- `hmo ymy` sMdyhdo .ydyhdo`.my   smh:   /mh````smo.ymyydm:.Nm .hmyydm.:hhshd+ +md+:mo .my `dh`-hdshh-`hm` /m+ +md+/dhshd/      
+      `.`    .`   ...    `.` `.`  sM/..`    `..`   .`    ..`   `.`    `.`  ..``.:yMd   ..``.   ...`   ..``.`  .`  .`   ...   `.  `.`  ..` `...        
+                                  .:`                                           .//.                                                            
+
+------------------ ############ VIEWPORT ORIENTATION ADJUSTMENTS ############ ------------------ */
+@media screen and ( orientation: landscape ) { /* landscape viewport, vertical rooms */
+    .room__wrapper {
+        height: 100%;
+        width: calc( 50% - 1px );
+    }
+
+    .room-b {
+        left: calc( 50% + 1px );
+        top: 0;
+    }
+
+    .color-info {
+      line-height: 10vw;
+    }
+
+    .color-number {
+      font-size: 7vw;
+    }
+
+    .color-name {
+      font-size: 10vw;
+    }
+}
+
+@media screen and ( max-width: 800px ) and ( orientation: landscape ){
+  .color-number {
+    font-size: 8vw;
+  }
+}
