@@ -89,6 +89,7 @@ ul, li {
 .room__wrapper {
   background-color: var( --room-color-left );
   height: calc( 50% - 1px );
+  overflow: hidden;
   opacity: 1;
   transition: opacity 1s;
   will-change: opacity;
@@ -263,11 +264,11 @@ ul, li {
     }
 
     .color-info {
-      font-size: 18vw !important;
+      font-size: 16vw !important;
     }
 
     .state-detail .color-info {
-      font-size: 10vw !important;
+      font-size: 9vw !important;
     }
 }
 
